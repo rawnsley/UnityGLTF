@@ -406,7 +406,8 @@ namespace UnityGLTF
 						? meshAttributes[SemanticProperties.TANGENT].AccessorContent.AsTangents.ToUnityVector4Raw()
 						: null
 				};
-
+//HACK for https://github.com/KhronosGroup/UnityGLTF/issues/142
+mesh.RecalculateNormals();
 				_assetCache.MeshCache[meshID][primitiveIndex].LoadedMesh = mesh;
 			}
 
